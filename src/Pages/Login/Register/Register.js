@@ -1,10 +1,7 @@
-import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
@@ -29,20 +26,6 @@ const Register = () => {
             })
             .catch(error => console.error(error))
     }
-
-    const { providerLogin } = useContext(AuthContext);
-
-    const googleProvider = new GoogleAuthProvider()
-
-    const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-            })
-            .catch(error => console.error(error))
-    }
-
 
     return (
         <div className="w-75 mx-auto">
@@ -70,10 +53,6 @@ const Register = () => {
                 </Form.Text>
             </Form>
             <p><small>Already have an account? Please <Link to='/login'>Login</Link></small></p>
-            <ButtonGroup vertical>
-                <Button onClick={handleGoogleSignIn} className='mb-2 rounded btn btn-outline-primary' variant="light"><FaGoogle></FaGoogle> Login with Google</Button>
-                <Button className='rounded btn btn-outline-primary' variant="light"><FaGithub></FaGithub> Login with Github</Button>
-            </ButtonGroup>
         </div>
     );
 };
