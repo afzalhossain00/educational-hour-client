@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { ButtonGroup } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const [error, setError] = useState('')
-
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -25,7 +27,8 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset()
-                navigate('/courses')
+                setError('')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
@@ -36,9 +39,20 @@ const Login = () => {
     const { providerLogin } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/courses')
+            })
+            .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -72,7 +86,7 @@ const Login = () => {
             </p>
             <ButtonGroup vertical>
                 <Button onClick={handleGoogleSignIn} className='mb-2 rounded btn btn-outline-primary' variant="light"><FaGoogle></FaGoogle> Login with Google</Button>
-                <Button className='rounded btn btn-outline-primary' variant="light"><FaGithub></FaGithub> Login with Github</Button>
+                <Button onClick={handleGithubSignIn} className='rounded btn btn-outline-primary' variant="light"><FaGithub></FaGithub> Login with Github</Button>
             </ButtonGroup>
         </div>
     );
