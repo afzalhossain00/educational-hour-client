@@ -18,7 +18,7 @@ const SideNav = () => {
                 {
                     categories.map(category => <div className='p-4 rounded border mb-2 text-center bg-light fw-semibold'
                         key={category.id}>
-                        <Link style={{ textDecoration: 'none' }} to={`/category/${category.id}`}>{category.name}</Link>
+                        <Link style={{ textDecoration: 'none' }} to={`/course/${category.id}`}>{category.name}</Link>
                     </div>)
                 }
             </div>

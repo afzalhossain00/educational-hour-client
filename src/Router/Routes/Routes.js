@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Category from "../../Pages/Category/Category/Category";
-import Courses from "../../Pages/Courses/Courses/Courses";
+import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import Home from "../../Pages/Home/Home/Home";
 
 export const routes = createBrowserRouter([
@@ -11,19 +11,19 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         children: [
             {
-                path: '/',
+                path: '/courses',
                 element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/courses')
             },
             {
-                path: '/category/:id',
+                path: '/course/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
-                path: '/courses/:id',
-                element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
             }
         ]
     },

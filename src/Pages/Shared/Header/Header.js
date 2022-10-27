@@ -3,11 +3,21 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import SideNav from '../SideNav/SideNav';
+import logo from '../../../assets/logo.png'
 
 const Header = () => {
     return (
         <Navbar className='mb-4' collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
+                <Navbar.Brand href="/">
+                    <img
+                        alt=""
+                        src={logo}
+                        width="40"
+                        height="30"
+                        className="d-inline-block align-top"
+                    />
+                </Navbar.Brand>
                 <Navbar.Brand className='fw-bold fs-3' href="/">Educational Hour</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
