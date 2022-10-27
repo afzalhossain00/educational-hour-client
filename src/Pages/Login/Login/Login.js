@@ -9,7 +9,7 @@ import { ButtonGroup } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const [passwordError, setPasswordError] = useState('')
+    const [error, setError] = useState('')
 
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate()
@@ -29,7 +29,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error)
-                setPasswordError(error.message)
+                setError(error.message)
             })
     }
 
@@ -64,7 +64,7 @@ const Login = () => {
                 <Form.Text className="text-danger">
                 </Form.Text>
             </Form>
-            <p className='text-danger'>{passwordError}</p>
+            <p className='text-danger'>{error}</p>
             <p>
                 <small>
                     New to this website? Please <Link to="/register">Register</Link>
