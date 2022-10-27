@@ -1,17 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import SideNav from '../SideNav/SideNav';
 import logo from '../../../assets/logo.png'
-import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const [toggled, setToggled] = useState(false);
 
     const handleLogOut = () => {
         logOut()
@@ -39,6 +40,8 @@ const Header = () => {
                         <Nav.Link href="/courses">Courses</Nav.Link>
                         <Nav.Link href="/faq">FAQ</Nav.Link>
                         <Nav.Link href="/blog">Blog</Nav.Link>
+
+                        <input onChange={(event) => setToggled(event.target.checked)} className='roundedCircle' type='checkbox'></input>{toggled ? "Light" : "Dark"}
                     </Nav>
                     <Nav>
                         <Nav.Link href="/">
@@ -67,7 +70,7 @@ const Header = () => {
                     </div>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 
