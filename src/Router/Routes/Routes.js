@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blogs/Blog/Blog";
 import Category from "../../Pages/Category/Category/Category";
+import Course from "../../Pages/Courses/Course/Course";
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import FAQ from "../../Pages/FAQ/FAQ/FAQ";
 import Home from "../../Pages/Home/Home/Home";
@@ -18,22 +19,21 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/courses')
             },
             {
                 path: '/courses',
-                element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/courses')
+                element: <Course></Course>,
+                loader: () => fetch('https://educational-hour-server.vercel.app/courses')
             },
             {
                 path: '/course/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
             },
             {
                 path: '/course/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
             },
             {
                 path: '/login',

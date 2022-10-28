@@ -36,25 +36,23 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto fw-semibold">
-                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/"></Nav.Link>
                         <Nav.Link href="/courses">Courses</Nav.Link>
                         <Nav.Link href="/faq">FAQ</Nav.Link>
                         <Nav.Link href="/blog">Blog</Nav.Link>
-
-                        <input onChange={(event) => setToggled(event.target.checked)} className='roundedCircle' type='checkbox'></input>{toggled ? "Light" : "Dark"}
                     </Nav>
                     <Nav>
                         <Nav.Link href="/">
+                            <input onChange={(event) => setToggled(event.target.checked)} className='roundedCircle' type='checkbox'></input>{toggled ? "Light" : "Dark"}
                             {
                                 user?.uid ?
                                     <>
-                                        <span>  {user?.displayName}</span>
-                                        <Button className='btn btn-outline-primary ms-2' variant="light" onClick={handleLogOut}>Logout</Button>
+                                        <Button className='btn btn-outline-primary ms-2 rounded-pill' variant="light" onClick={handleLogOut}>Logout</Button>
                                     </>
                                     :
                                     <>
-                                        <Link className='btn btn-outline-primary me-2' style={{ textDecoration: 'none' }} to='/login'>Login</Link>
-                                        <Link className='btn btn-outline-primary me-2' style={{ textDecoration: 'none' }} to='/register'>Register</Link>
+                                        <Link className='btn btn-outline-primary btn-md me-2 rounded-pill' style={{ textDecoration: 'none' }} to='/login'>Login</Link>
+                                        <Link className='btn btn-outline-primary btn-md me-2 rounded-pill' style={{ textDecoration: 'none' }} to='/register'>Register</Link>
                                     </>
                             }
                         </Nav.Link>

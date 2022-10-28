@@ -14,11 +14,11 @@ const FAQ = () => {
             <Accordion.Item eventKey="1">
                 <Accordion.Header>How long does each course take?</Accordion.Header>
                 <Accordion.Body>
-                    The length of online classes varies. Some can be completed in as little as five weeks, while others take longer. On average, Our courses last eight to nine weeks.
+                    We have various length of course. Some can be completed in as little as three weeks, while others take longer. On average, Our courses last eight to nine weeks.
                 </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
-                <Accordion.Header>What are the technology requirements?</Accordion.Header>
+                <Accordion.Header>What are the requirements?</Accordion.Header>
                 <Accordion.Body>
                     <li>Time Management Skills.</li>
                     <li>Persistence & patience.</li>

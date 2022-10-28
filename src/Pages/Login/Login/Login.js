@@ -84,9 +84,9 @@ const Login = () => {
                     New to this website? Please <Link to="/register">Register</Link>
                 </small>
             </p>
-            <ButtonGroup vertical>
-                <Button onClick={handleGoogleSignIn} className='mb-2 rounded btn btn-outline-primary' variant="light"><FaGoogle></FaGoogle> Login with Google</Button>
-                <Button onClick={handleGithubSignIn} className='rounded btn btn-outline-primary' variant="light"><FaGithub></FaGithub> Login with Github</Button>
+            <ButtonGroup horizontal>
+                <Button onClick={handleGoogleSignIn} className='me-2 rounded btn btn-outline-info' variant="light"><FaGoogle className='me-2'></FaGoogle>Google</Button>
+                <Button onClick={handleGithubSignIn} className='rounded btn btn-outline-info' variant="light"><FaGithub className='me-2'></FaGithub>Github</Button>
             </ButtonGroup>
         </div>
     );
