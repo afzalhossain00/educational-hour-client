@@ -13,7 +13,7 @@ const SideNav = () => {
 
     return (
         <div>
-            <h5 className='mb-2 text-center'>Course List:</h5>
+            <h5 className='mb-2 text-center'>Course List</h5>
             <div>
                 {
                     categories.map(category => <div className='p-4 rounded border mb-2 text-center bg-light fw-semibold'

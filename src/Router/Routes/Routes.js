@@ -5,6 +5,7 @@ import Blog from "../../Pages/Blogs/Blog/Blog";
 import Category from "../../Pages/Category/Category/Category";
 import Course from "../../Pages/Courses/Course/Course";
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
+import GetCourse from "../../Pages/Courses/GetCourse/GetCourse";
 import FAQ from "../../Pages/FAQ/FAQ/FAQ";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
@@ -27,11 +28,6 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/course/:id',
-                element: <Category></Category>,
-                loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
-            },
-            {
-                path: '/course/:id',
                 element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
             },
@@ -50,7 +46,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <FAQ></FAQ>
-
+            },
+            {
+                path: '/get-course/course/:id',
+                element: <PrivateRoute><GetCourse></GetCourse></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
             },
         ]
     },

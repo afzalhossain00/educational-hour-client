@@ -32,14 +32,14 @@ const Header = () => {
                         className="d-inline-block align-top"
                     />
                 </Navbar.Brand>
-                <Navbar.Brand className='fw-bold fs-3' href="/">Educational Hour</Navbar.Brand>
+                <Link style={{ textDecoration: 'none', color: 'black' }} className='fw-bold fs-3' to="/">Educational Hour</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto fw-semibold">
-                        <Nav.Link href="/"></Nav.Link>
-                        <Nav.Link href="/courses">Courses</Nav.Link>
-                        <Nav.Link href="/faq">FAQ</Nav.Link>
-                        <Nav.Link href="/blog">Blog</Nav.Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4 fs-6" to="/"></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4" to="/courses">Courses</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4" to="/faq">FAQ</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4" to="/blog">Blog</Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="/">
@@ -51,7 +51,7 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link className='btn btn-outline-primary btn-md me-2 rounded-pill' style={{ textDecoration: 'none' }} to='/login'>Login</Link>
+                                        <Link className='btn btn-outline-primary btn-md me-2  ms-2 rounded-pill' style={{ textDecoration: 'none' }} to='/login'>Login</Link>
                                         <Link className='btn btn-outline-primary btn-md me-2 rounded-pill' style={{ textDecoration: 'none' }} to='/register'>Register</Link>
                                     </>
                             }
