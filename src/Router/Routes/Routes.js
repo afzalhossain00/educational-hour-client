@@ -2,7 +2,6 @@ import { Button } from "react-bootstrap";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blogs/Blog/Blog";
-import Category from "../../Pages/Category/Category/Category";
 import ChekOut from "../../Pages/Courses/ChekOut/ChekOut";
 import Course from "../../Pages/Courses/Course/Course";
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
