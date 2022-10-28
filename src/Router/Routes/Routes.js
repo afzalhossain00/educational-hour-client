@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blogs/Blog/Blog";
 import Category from "../../Pages/Category/Category/Category";
+import ChekOut from "../../Pages/Courses/ChekOut/ChekOut";
 import Course from "../../Pages/Courses/Course/Course";
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import GetCourse from "../../Pages/Courses/GetCourse/GetCourse";
@@ -50,6 +51,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/get-course/course/:id',
                 element: <PrivateRoute><GetCourse></GetCourse></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
+            },
+            {
+                path: '/get-course/course/checkout/:id',
+                element: <PrivateRoute><ChekOut></ChekOut></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://educational-hour-server.vercel.app/course/${params.id}`)
             },
         ]
