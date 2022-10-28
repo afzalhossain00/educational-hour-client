@@ -37,9 +37,9 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto fw-semibold">
                         <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4 fs-6" to="/"></Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4" to="/courses">Courses</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4" to="/faq">FAQ</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4" to="/blog">Blog</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4 btn btn-light" to="/courses">Courses</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4 btn btn-light" to="/faq">FAQ</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4 btn btn-light" to="/blog">Blog</Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="/">
