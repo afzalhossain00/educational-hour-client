@@ -6,7 +6,7 @@ import SideNav from '../SideNav/SideNav';
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Button, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
@@ -42,8 +42,10 @@ const Header = () => {
                         <Link style={{ textDecoration: 'none', color: 'black' }} className="me-4 btn btn-light" to="/blog">Blog</Link>
                     </Nav>
                     <Nav>
+                        <div className="form-check form-switch d-flex align-items-center">
+                            <input onChange={(event) => setToggled(event.target.checked)} className="form-check-input me-1" type="checkbox" role="switch" id="flexSwitchCheckDefault" />{toggled ? "Light" : "Dark"}
+                        </div>
                         <Nav.Link href="/">
-                            <input onChange={(event) => setToggled(event.target.checked)} className='roundedCircle' type='checkbox'></input>{toggled ? "Light" : "Dark"}
                             {
                                 user?.uid ?
                                     <>
